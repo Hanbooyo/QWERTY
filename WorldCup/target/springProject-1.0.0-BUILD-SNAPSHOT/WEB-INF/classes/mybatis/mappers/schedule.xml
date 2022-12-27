@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.schedule">
+
+	<resultMap type="matchScheduleVO" id="scheduleResult">
+		<result property="matchday" column="matchday" />
+		<result property="matchnum" column="matchnum" />
+		<result property="month" column="month" />
+		<result property="day" column="day" />
+		<result property="hour" column="hour" />
+		<result property="stadium" column="stadium" />
+		<result property="home" column="home" />
+		<result property="away" column="away" />
+	</resultMap>
+
+	<resultMap type="matchDetailVO" id="matchResult">
+		<result property="position" column="position" />
+		<result property="p_num" column="p_num" />
+		<result property="p_name" column="p_name" />
+		<result property="p_birth" column="p_birth" />
+		<result property="p_team" column="p_team" />
+		<result property="starting" column="starting" />
+		<result property="country" column="country" />
+	</resultMap>
+
+	<resultMap type="countryVO" id="countryResult">
+		<result property="country" column="country" />
+		<result property="rank" column="rank" />
+		<result property="coach" column="coach" />
+		<result property="captain" column="captain" />
+		<result property="formation" column="formation" />
+		<result property="color" column="color" />
+	</resultMap>
+
+	<!-- 전체 경기 일정 보기 -->
+	<select id="selectAllMatchList" resultMap="scheduleResult">
+		<![CDATA[
+			select * from schedule_tbl order by matchnum
+		]]>
+	</select>
+
+	<!-- 해당 일자의 경기리스트 가져오기 -->
+	<select id="selectDayList" resultMap="scheduleResult" parameterType="Integer">
+		<![CDATA[
+			select matchnum, home, away from schedule_tbl where matchday = #{matchday} order by matchnum
+		]]>
+	</select>
+
+
+	<!-- match detail 쿼리문 영역 -->
+
+	<!-- 선수 정보를 불러오는 메소드 -->
+	<select id="matchPlayers" resultMap="matchResult" parameterType="String">
+		<![CDATA[
+			select * from player_tbl where country = #{value} order by starting
+		]]>
+	</select>
+
+	<!-- matchnum을 받아 해당 home 팀 이름를 반환하는 메소드 -->
+	<select id="matchInfoHome" resultType="String" parameterType="int">
+		<![CDATA[
+			select home from schedule_tbl where matchnum = #{value}
+		]]>
+	</select>
+	
+	<!-- matchnum을 받아 해당 away 팀 이름를 반환하는 메소드 -->
+	<select id="matchInfoAway" resultType="String" parameterType="int">
+		<![CDATA[
+			select away from schedule_tbl where matchnum = #{value}
+		]]>
+	</select>
+
+	<!-- 국가 이름으로 국가 정보를 받아오는 메소드 -->
+	<select id="countryInfo" resultType="countryVO" parameterType="String">
+		<![CDATA[
+			select * from country_info where country = #{value}
+		]]>
+	</select>
+	
+	<!-- matchnum을 받아 matchday를 반환하는 메소드 -->
+	<select id="today" resultType="int" parameterType="int">
+		<![CDATA[
+			select matchday from schedule_tbl where matchnum = #{value}
+		]]>
+	</select>
+	
+	<!-- 같은 날에 하는 경기 불러오는 메소드 -->
+	<select id="todayList" resultMap="scheduleResult" parameterType="int">
+		<![CDATA[
+			select home, away, matchnum from schedule_tbl where matchday = #{value} order by matchnum
+		]]>
+	</select>
+</mapper>

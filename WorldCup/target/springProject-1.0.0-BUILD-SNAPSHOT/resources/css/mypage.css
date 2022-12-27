@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+.title {
+	margin-top: 30px;
+}
+
+.myInfo {
+	margin-left: 40px;
+}
+
+.id, .tel {
+	width: 300px;
+}
+
+.email {
+	width : 520px;	
+}
+.email input, .tel input, .introduce textarea {
+	letter-spacing: 2px;
+}
+
+.address, .introduce {
+	width: 520px;
+}
+.text-center{
+	margin-top: 10px;
+}
+
+

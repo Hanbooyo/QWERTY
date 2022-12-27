@@ -1,0 +1,86 @@
+
+body{
+    background:lightgrey;
+  }
+  table{
+    background:white;
+  }
+  #regi-content table,#regi-content table th, #regi-content table td{
+    border-collapse:collapse;
+    border:1px solid lightgrey;
+    padding:10px;
+    font-size:16px;
+  }
+  #regi-wrapper{
+    width: 60%;
+    height:10%;
+  }
+  #regi-content table{
+    width:990px;
+  }
+  th{
+    background:aliceblue;
+  }
+  textarea{
+    resize:none;
+  }
+  .imgView{
+    width:200px;
+    height:200px;
+  }
+  .outputView{
+   
+    width:200px;
+    height:200px;
+  }
+  .colorImgBox{
+    position:relative;
+    width:250px;
+    height:70px;
+    border:1px solid lightgrey;
+    background:aliceblue;
+    border-radius:3%;
+    margin:3px;
+  }
+  .colorImg{
+    margin-top:5px;
+    margin-left:5px;
+    margin-right:13px;
+     background:black;
+    width:60px;
+    height:60px;
+  }
+  .xBtn{
+    position:absolute;
+    top:5px;
+    left:223px;
+  }
+  .hiddenBox{
+  display:none;
+    
+  }
+  
+  #goods_name{
+    width:370px;
+  }
+  #regi-con-content{
+    position:relative;
+    padding:30px;
+    width:1000px;
+    height:850px;
+    left:25%;
+    margin-bottom:250px;
+    padding-bottom:75px;
+  }
+  #goods_reg{
+    font-size:16px;
+    position:relative;
+    left:450px;
+    top:20px;
+  }
+  #colorPick{
+    margin-right:-50px;
+  }
+  #countLabel{
+    background:white;
+  }

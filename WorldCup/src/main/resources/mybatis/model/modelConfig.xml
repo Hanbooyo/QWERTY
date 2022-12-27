@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<!-- db를 임시로 담을 용도 -->
+		<!-- SQL문으로 값을 전달하거나 읽어올 때 사용할 VO 빈 생성 -->
+		<typeAlias type="Qwerty.qwerty.WorldCup.member.vo.MemberVO" alias="memberVO"/>
+		<typeAlias type="Qwerty.qwerty.WorldCup.shopping.vo.ShoppingVO" alias="shoppingVO"/>
+		<typeAlias type="Qwerty.qwerty.WorldCup.match.vo.MatchScheduleVO" alias="matchScheduleVO"/>
+		<typeAlias type="Qwerty.qwerty.WorldCup.match.vo.MatchDetailVO" alias="matchDetailVO"/>
+		<typeAlias type="Qwerty.qwerty.WorldCup.match.vo.CountryVO" alias="countryVO"/>
+		<typeAlias type="Qwerty.qwerty.WorldCup.board.vo.QboardVO" alias="qBoardVO"/>
+		<typeAlias type="Qwerty.qwerty.WorldCup.board.vo.FarticleVO" alias="farticleVO"/>
+		<typeAlias alias="cartVO" type="Qwerty.qwerty.WorldCup.shopping.vo.CartVO"/>
+	</typeAliases>
+</configuration>

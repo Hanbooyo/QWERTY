@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 다른 파일의 SQL문과 구분하기 위해 -->
+<mapper namespace="mapper.qBoard">
+	<resultMap type="qBoardVO" id="articleResult">
+		<result property="level" column="lvl"/>
+		<result property="q_ano" column="q_ano"/>
+		<result property="q_pno" column="q_pno"/>
+		<result property="q_title" column="q_title"/>
+		<result property="q_content" column="q_content"/>
+		<result property="q_img" column="q_img"/>
+		<result property="q_date" column="q_date"/>
+		<result property="i_num" column="i_num"/>
+	</resultMap>
+	
+	<!-- 게시글 전체 목록 + 페이징 -->
+	<select id="selectAllArticleList" resultMap="articleResult" parameterType="hashMap">
+		SELECT * FROM (SELECT ROWNUM AS recNum, LVL, q_ano, 
+		q_pno, q_title, id, q_date FROM (SELECT LEVEL as LVL, q_ano, 
+		q_pno, q_title, id, q_date FROM q_board
+		<choose>
+		  	<when test="i_num != null and i_num != ''">
+		  		 where i_num = #{i_num} 
+		  	</when>
+	    </choose>
+		<![CDATA[	
+			START WITH q_pno=0 CONNECT BY PRIOR q_ano = q_pno ORDER SIBLINGS BY q_ano DESC)) 
+			where recNum between (#{section}-1)*100 + (#{pageNum}-1)*10 + 1 and (#{section}-1)*100 + #{pageNum}*10
+		]]>
+	</select>
+	
+	<!-- 글 작성 -->
+	<insert id="insertNewArticle" parameterType="java.util.Map">
+		<![CDATA[
+			INSERT INTO q_board(q_ano, q_pno, q_title, q_content, q_img, id, i_num) 
+			VALUES(#{q_ano}, #{q_pno}, #{q_title}, #{q_content}, #{q_img}, #{id}, #{i_num})
+		]]>
+	</insert>
+	
+	<!-- 글번호 새로 지정 -->
+	<select id="selectNewQ_ano" resultType="int">
+		<![CDATA[
+			SELECT nvl(max(q_ano),0) + 1 FROM q_board
+		]]>
+	</select>
+	
+	<!-- 게시글 전체수 -->
+	<select id="selectTotArticles" resultType="int" parameterType="int">
+		<![CDATA[
+			select count(q_ano) from q_board
+		]]>
+	</select>
+	
+	<!-- 선택된 게시글 상세보기 -->
+	<select id="selectArticle" resultMap="articleResult" parameterType="int">
+		<![CDATA[
+			select q_ano, q_pno, q_title, q_content, NVL(q_img, 'null') as q_img, 
+			id, q_date, i_num from q_board where q_ano = #{q_ano}
+		]]>
+	</select>
+	
+	<!-- 게시글 수정하기 -->
+	<update id="updateArticle" parameterType="java.util.Map">
+		UPDATE q_board SET q_title = #{q_title}, q_content = #{q_content} 
+		<if test="q_img != '' and q_img != null">
+			, q_img = #{q_img}
+		</if>
+		WHERE q_ano = #{q_ano}
+	</update>
+	
+	<delete id="deleteArticle" parameterType="int">
+		<![CDATA[
+			DELETE FROM q_board WHERE q_ano IN (SELECT q_ano FROM q_board
+			START WITH q_ano = #{q_ano} CONNECT BY PRIOR q_ano = q_pno)
+		]]>
+	</delete>
+</mapper>

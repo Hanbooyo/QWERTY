@@ -1,0 +1,834 @@
+body, button, dd, dl, dt, fieldset, figure, form, h1, h2, h3, h4, h5, h6, input, legend, li, menu, nav, ol, p, select, table, td, textarea, th, ul {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    line-height: 1.25;
+}
+
+/* flex */
+.flex_left {
+    flex: 0 0 17%;
+    max-width: 17;
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-top : 15px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.flex_right {
+    flex: 0 0 33%;
+    max-width: 25%;
+    position: relative;
+    min-width: 330px;
+    width: 100%;
+    min-height: 1px;
+    padding-top : 15px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.flex_center {
+    flex: 0 0 53%;
+    max-width: 53%;
+    width: 100%;
+    min-height: 1px;
+    padding-top : 15px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+/* 筌띲끉�뒄 占쎌뵬占쎌젟 占쎄틙 */ 
+.fixture_section {
+    margin-right: 24px;
+    width: 144px;   
+    position: sticky;
+    top: 72px;
+    font-size: 14px;
+    line-height: 1.25;
+}
+
+.fixture_sticky_area {
+    z-index: 9997;
+}
+
+.match_list {
+    height: 416px;
+    margin-top: 0;
+    position: relative;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+.match_view_port {
+    position: relative;
+    z-index: 2000;
+    overflow: visible;
+    min-width: 100%;
+    height: 100%;
+    touch-action: pan-x;
+    user-select: none;
+    -webkit-user-drag: none;
+    width: 145px;
+    white-space: nowrap;
+}
+
+.list_ul {
+    width: 100%;
+    height: 100%;
+    will-change: transform;
+    transform: translate3d(0px, 0px, 0px);
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    line-height: 1.25;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.match_link {
+    width: 144px;
+    height: 88px;
+    padding: 8px 12px;
+    position: relative;
+    display: block;
+    border : 1px solid #e2e5ed;
+    border-radius: 4px;
+    color: #333;
+    box-sizing: border-box;
+}
+
+.match_status {
+    padding-top: 3px;
+    color: rgb(70, 70, 70);
+    display: block;
+    padding: 1px 0 2px 1px;
+    font-size: 11px;
+    line-height: 13px;
+    font-weight: 600;
+    letter-spacing: -.2px;
+}
+
+.match_list_team {
+    font-weight: 500;
+    color: #000;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -.7px;
+}
+
+.match_flag {
+    display: block;
+    margin-right: 2px;
+}
+
+.match_team {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-right: 1px; 
+}
+
+.match_score {
+    font-weight: 500;
+    min-width: 9px;
+    font-size: 15px;
+    text-align: center;
+    margin-left: auto;
+}
+
+
+/**/
+
+.list_ul li {
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    margin-bottom: 13px;
+}
+
+.line_logo {
+    width: 30px;
+    height: 30px;
+    margin: 7px 2px 0 0;
+    vertical-align: top;
+    font-size: 15px;
+    line-height: 45px;
+    text-align: center;
+}
+.game_contents {
+    padding-bottom: 12px;
+    border-radius: 0 0 10px 10px;
+    position: relative;
+    background-color: var(--color-background1);
+    box-sizing: border-box;
+}
+.line_up_tap {
+    overflow: hidden;
+}
+.lineUp_comp{
+    display: flex;
+    flex-direction: column;
+    width: 486px;
+    margin: 41px auto 0;
+    border-radius: 14px;
+    border: 1px solid #f1f1f1;
+}
+.home_area {
+    -webkit-box-ordinal-group: 2;
+    order: 1;
+    font-size: 15px;
+    line-height: 45px;
+    text-align: center;
+}
+
+.team_name {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    font-size: 15px;
+    line-height: 45px;
+    text-align: center;
+}
+.team_formation {
+    font-size: 15px;
+    line-height: 45px;
+    text-align: center;
+}
+.away_area{
+    -webkit-box-ordinal-group: 4;
+    order: 3;
+    font-size: 15px;
+    line-height: 45px;
+    text-align: center;
+}
+.formation_area {
+    -webkit-box-ordinal-group: 3;
+    order: 2;
+    position: relative;
+    background: #247847;
+    text-align: center;
+}
+.center_circle{
+    width: 105px;
+    height: 105px;
+    border-width: 3px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 91px;
+    height: 91px;
+    border-radius: 92px;
+    border: 2px solid #338657;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    content: "";
+}
+.lineUp_home{
+    padding-top: 23px;
+    min-height: 321px;
+    position: relative;
+    padding: 29px 5px 0;
+    box-sizing: border-box;
+}
+.goal_box{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    font-style: normal;
+}
+.lineUp_box{
+    width: 221px;
+    height: 79px;
+    display: block;
+    background-color: #247847;
+    border: 2px solid #338657;
+    border-top: 0 solid #338657;
+    box-sizing: border-box;
+    text-align: center;
+}
+.goal {
+    width: 121px;
+    height: 30px;
+    display: inline-block;
+    vertical-align: top;
+    border: 2px solid #338657;
+    border-top: 0 solid #338657;
+    content: "";
+}
+.lineUp_line {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    margin-bottom: 2px;
+}
+.lineUp_player_warp{
+    -webkit-box-flex: 1;
+    flex: 1 1;
+    color: #fff;
+}
+.lineUp_line_four{
+    position: relative;
+    z-index: 1;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    margin-bottom: 2px;
+}
+.lineUp_line_three{
+    position: relative;
+    z-index: 1;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    margin-bottom: 2px;
+}
+.lineUp_line_two{
+    position: relative;
+    z-index: 1;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    margin-bottom: 2px;
+}
+
+.lineUp_player_wrap {
+    flex: 1 1;
+    color: #fff;
+}
+.lineUp_number{
+    width: 33px;
+    font-size: 15px;
+    line-height: 33px;
+    display: inline-block;
+    border: 1px solid rgba(0,0,0,.15);
+    color: #fff;
+    text-shadow: 2px 2px 3px black;
+    border-radius: 50%;
+    vertical-align: top;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 15%);
+}
+.lineUp_name {
+    max-width: 150px;
+    padding: 1px 4px;
+    font-size: 13px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display: block;
+    position: relative;
+    left: 50%;
+    font-weight: 600;
+    color: #fff;
+    transform: translateX(-50%);
+}
+.lineUp_line_four .lineUp_name {
+    max-width: 110px;
+    
+}
+/* 占쎌냳占쏙옙 占쎌겫占쎈열 占쎄국*/
+.lineUp_away .goal_box {
+    top: auto;
+    bottom: 0;
+    transform: translateX(-50%) rotate(180deg);
+}
+.lineUp_away {
+    min-height: 322px;
+    position: relative;
+    padding: 60px 5px 0;
+    box-sizing: border-box;
+}
+
+
+.center_line{
+    border-width: 3px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    border-bottom: 2px solid #338657;
+    transform: translateY(-50%);
+    content: "";
+}
+
+
+/* �봽由щ럭 �쁺�뿭*/
+.preview_container {
+	width 90%; 
+	margin-top:20px;
+}
+.preview_container h4{
+	margin-left: 30px;	
+	margin-bottom: 15px;
+}
+.preview_intro {
+    margin: 0 25px;
+    position: relative;
+    height: 120px;
+    box-sizing: border-box;
+    background-color: #fdf8f0;
+    border: 1px solid #f9f1e5;
+    border-radius: 12px;
+    padding: 12px 7px 0;
+}
+.preview_matchbox {
+    position: relative;
+    overflow: hidden;
+}
+.match_vs {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.match_left {
+    padding-right: 30px;
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.match_right {
+    padding-left: 30px;
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.flag_div {
+    width: 60px;
+    height: 60px;
+}
+.preview_flag {
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    vertical-align: top;
+}
+
+table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    text-indent: initial;
+    border-spacing: 2px;
+}
+colgroup {
+    display: table-column-group;
+}
+.col2 {
+    width: 155px;
+}
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+    text-align: center;
+}
+tbody tr {
+    border-top: 1px solid #f1f1f1;
+}
+tbody tr:first-child {
+    border: 0;
+}
+tr {
+    display: table-row;
+    vertical-align: inherit;
+}
+tbody td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 13px 0;
+    font-size: 13px;
+    line-height: 16px;
+    font-weight: 500;
+    letter-spacing: -.5px;
+}
+tbody td:first-child {
+    text-align: right;
+}
+tbody td:last-child {
+    text-align: left;
+}
+tbody>tr>th span{
+    color: #8c8c8c;
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 400;
+    letter-spacing: -.7px;
+}
+
+/* 占쎌뜎癰귨옙 占쎌뵬占쎌뵥占쎈씜 占쎈뻻占쎌삂 */
+
+
+.subtitute_table_area {
+    padding-top: 50px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    color: #333;
+}
+
+.table_line {
+    position: absolute;
+    top: 56px;
+    bottom: 0;
+    left: 50%;
+    border-left: 1px solid #f1f1f1;
+    content: "";
+}
+
+.subtitute_table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    text-indent: initial;
+    border-spacing: 2px;
+    text-align: center;
+    border-color: grey;
+}
+
+.subtitute_table thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.subtitute_table thead th {
+    display: table-cell;
+    vertical-align: inherit;
+    font-weight: bold;
+    text-align: -internal-center;
+}
+
+.team_title {
+    height: 40px;
+    padding: 0 35px 15px;
+    font-size: 17px;
+	text-align : center;
+    align-items: center;
+}
+
+.team_text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-left: 4px;
+}
+
+.subtitute_table tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.subtitute_player_item{
+    padding: 10px 40px 10px 57px;
+    border-color: #f1f1f1;
+}
+
+.subtitute_player_name {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 10px;
+    font-size: 15px;
+    line-height: 25px;
+    font-weight: 600;
+}
+
+.subtitution {
+    margin: -2px 0 3px;
+    font-size: 14px;
+    line-height: 15px;
+    color: #888;
+}
+
+.subtitution_name {
+    margin-right: 4px;
+    vertical-align: top;
+}
+
+.subtitution_time {
+    display: inline-block;
+    vertical-align: top;
+}
+
+/* 占쎈떮占쎈ご */
+.cheer_area {
+    margin-bottom: 15px;
+    padding: 21px 24px;
+    border-radius: 10px;
+    background-color: var(--color-background1);
+}
+
+.cheer_box {
+    position: relative;
+    height: 90px;
+    letter-spacing: -.5px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none};
+}
+
+.vote_home {
+    min-width: 90px;
+    max-width: calc(100% - 90px);
+    width: 50%;
+    left: 0;
+    padding-right: 2.5px;
+    position: absolute;
+    transition: all .3s cubic-bezier(.215,.61,.355,1);
+    box-sizing: border-box;
+    cursor: pointer;
+    top: 0;
+    bottom: 0;
+    z-index: 10;
+}
+
+.vote_away {
+    min-width: 90px;
+    max-width: calc(100% - 90px);
+    width: 50%;
+    right: 0;
+    padding-right: 2.5px;
+    position: absolute;
+    transition: all .3s cubic-bezier(.215,.61,.355,1);
+    box-sizing: border-box;
+    cursor: pointer;
+    top: 0;
+    bottom: 0;
+    z-index: 10;
+}
+
+.vote_home_cover {
+    padding: 0 10px;
+    background: rgb(227, 62, 34);
+    height: 86px;
+    position: relative;
+    border-radius: 15px;
+    transition: transform .2s cubic-bezier(.215,.61,.355,1),-webkit-transform .2s cubic-bezier(.215,.61,.355,1);
+    color: inherit;
+}
+
+.vote_away_cover {
+    background: rgb(37, 101, 208);
+    padding: 0 10px;
+    height: 86px;
+    position: relative;
+    border-radius: 15px;
+    transition: transform .2s cubic-bezier(.215,.61,.355,1),-webkit-transform .2s cubic-bezier(.215,.61,.355,1);
+    color: inherit;
+}
+
+.cover_line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 15px;
+    border: 2px solid;
+    border-color: inherit;
+    mix-blend-mode: soft-light;
+    opacity: .3;
+    content: "";
+    z-index: -99;
+}
+
+.cover_flag {
+    margin-top: 10px;
+    width: 40px;
+    height: 40px;
+    vertical-align: top;
+    opacity: 1;
+    aspect-ratio: auto 50 / 50;
+    
+}
+
+.count_home {
+    position: absolute;
+    line-height: 26px;
+    font-weight: 700;
+
+    transform: scale(.78);
+    font-family: Helvetica Neue,sans-serif;
+    white-space: nowrap;
+    color: white;
+}
+.count_away {
+    position: absolute;
+    line-height: 26px;
+    font-weight: 700;
+
+    transform: scale(.78);
+    font-family: Helvetica Neue,sans-serif;
+    white-space: nowrap;
+    color: white;
+}
+
+.vote_home_cover .count {
+    left: 15px;
+    bottom: 10px;
+}
+
+.vote_away_cover .count {
+    right: 15px;
+    bottom: 10px;
+}
+
+.end {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 5;
+    width: 45px;
+    height: 31px;
+    margin: -16px 0 0 -22px;
+    background-color: #fff;
+    text-align: center;
+    font-size: 18px;
+    line-height: 32px;
+    letter-spacing: -1px;
+    font-family: Arial,sans-serif;
+    font-weight: 900;
+    color: #9b9b9b;
+    border-radius: 16px;
+    opacity: 1;
+}
+
+
+/* 筌�袁る샒 */
+
+/* 筌롫뗄�뵥 */
+#main {
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 20px;
+    background-color: lightblue;
+    text-align: center;
+    width: 300px;
+    height: 500px;
+  }
+  
+  /* 筌�袁る샒 占쎌겫占쎈열 */
+  #_chatbox {
+    height: 400px;
+    margin: 21px 24px;
+    padding: 0 10px;
+    width: 90%;
+    border: 1px solid #333;
+  }
+  #messageWindow {
+  	margin-top : 5px;
+    max-height: 340px;
+   	position: relative;
+    overflow-y: auto;
+  }
+  #_chatbox input {
+  	z-index: 99;
+  }
+  
+  /* 占쎌젔占쎈꺗 占쎈르�뵳占� */
+  .connect {
+    width: 90%;
+    margin: auto;
+    background-color: aquamarine;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  /* 占쎌젔占쎈꺗 �넫�굝利� 占쎈르�뵳占� */
+  .disconnect {
+    width: 90%;
+    margin: auto;
+    background-color: indianred;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  /* 占쎄땀揶쏉옙 癰귣�沅� 筌롫뗄�뻻筌욑옙 */
+  .me {
+    width: 90%;
+    margin: auto;
+    background-color: lemonchiffon;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  
+  /* 占쎄맒占쏙옙獄쎻뫗�뵠 癰귣�沅� 筌롫뗄�뻻筌욑옙 */
+  .other {
+    width: 90%;
+    margin: auto;
+    background-color: white;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  
+  /* 占쎈뙅 占쎈샍 */
+  .css-tooltip{
+    position: relative;
+    
+  }
+  .css-tooltip:hover:after{
+    content:attr(data-tooltip);
+    background:#000;
+    padding:5px;
+    border-radius:3px; 
+    display: inline-block;
+    position: absolute;
+    transform: translate(-50%,-100%); 
+    margin:0 auto;
+    color:#FFF;
+    min-width:150px;
+    min-width:200px;
+    top:-5px;
+    left: 50%;
+    text-align:center;
+    white-space:pre;
+  }
+  .css-tooltip:hover:before {
+    top:-5px;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(0, 0, 0, 0);
+    border-top-color: #000;
+    border-width: 5px;
+    margin-left: -5px;
+    transform: translate(0,0px); 
+  }
+  
+  

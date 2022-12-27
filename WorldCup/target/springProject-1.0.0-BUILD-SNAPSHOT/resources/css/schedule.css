@@ -1,0 +1,237 @@
+ul {
+    list-style: none;
+}
+a {
+	color: #777;
+	font-size: 0.85em;
+	font-weight: bold;	
+}
+.container {
+    position: relative;
+}
+.schedule_week_area {
+	padding-top: 30px;
+}
+.schedule_week {
+    position: relative;
+    padding: 20px 0;
+    margin: 0 auto;
+    border-top: 2px solid #ccc;
+    width: 1145px;
+}
+.week_list {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: justify;
+    justify-content: center;
+}
+.week_list li {
+    display: inline-block;
+}
+.week_list li input {
+    display: inline-block;
+    width: 135px;
+    text-align: center;
+    margin: 0 20px;
+    padding: 20px 40px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    color: #777;
+    background-color: #f7f7f9;
+}
+.schedule_button img {
+    padding: 20px 10px;
+    cursor: pointer;
+}
+.left_button {
+    position: absolute;
+    top: 20px;
+    left: 0;
+}
+.right_button {
+    position: absolute;
+    top: 20px;
+    right: 0;
+}
+.day_list {
+    position: relative;
+    border: 1px solid #bdbfbf;
+    border-radius: 3px;
+    background-color: #f7f7f9;
+    padding: 20px 0;
+    height: 166px;
+}
+.d_list {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    
+}
+.d_list .bx {
+    position: relative;
+    display: table-cell;
+    padding: 0 15px;
+    vertical-align: top;
+}
+.d_list .bx ~ .bx {
+    border-left: 1px solid #e4e4e4;
+}
+.bx .vs_center {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+.bx .vs_center .vs {
+    color: #a4a3a8;
+    font-weight: 600;
+    font-size: 20px;
+}
+.bx .vs_area {
+    float: left;
+    position: relative;
+    width: 50%;
+    text-align: center;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+.bx .vs_area .team {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+    margin: 10px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #777;
+}
+.bx #vs_left {
+    padding-right: 25px;
+    padding-left: 10px;
+}
+.bx #vs_right {
+    padding-right: 10px;
+    padding-left: 25px;
+}
+.bx .vs_btn {
+    margin-bottom: -6px;
+    clear: both;
+    text-align: center;
+}
+.bx .emblem {
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+}
+.bx .emblem img {
+	width: 64px;
+	height: 64px;
+}
+.bx .empty {
+    display: block;
+    padding: 20px 0;
+    text-align: center;
+    color: #c8c8c8;
+}
+.bx .empty::before {
+    display: block;
+    margin: 0 auto 13px;
+    width: 47px;
+    height: 47px;
+    background-image: url('../img/寃쎄린�뾾�쓬.png');
+    content: '';
+}
+.schedule_month_area {
+    padding-top: 50px;
+}
+.schedule_month_table table {
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+.schedule_month_table thead {
+    border: 1px solid #bdbfbf;;
+}
+.schedule_month_table thead th {
+    background-color: #f7f7f9;
+    color: #969696;
+    line-height: 45px;
+    font-size: 12px;
+}
+.schedule_month_table thead .t_date {
+    width: 10%;
+}
+.schedule_month_table thead .t_time {
+    width: 10%;
+}
+.schedule_month_table thead .t_place {
+    width: 15%;
+}
+.schedule_month_table thead .t_match {
+    width: 50%;
+}
+.schedule_month_table thead .t_detail {
+    width: 15%;
+}
+tbody .inner .emblem img {
+    width: 25px;
+    height: 25px;
+    vertical-align: baseline;
+}
+.schedule_month_table .team_left, .schedule_month_table .team_right {
+    position: relative;
+    padding-top: 1px;
+    float: left;
+    width: 50%;
+    height: 33px;
+    line-height: 33px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.schedule_month_table tr {
+    font-size: 14px;
+    border: 1px solid #ccc;
+}
+.schedule_month_table tbody th {
+    background-color: #f7f7f9;
+    border-right: 1px solid #ccc;
+}
+.schedule_month_table .place {
+    color: #999;
+    font-size: 12px;
+}
+.schedule_month_table .team_left .emblem, .schedule_month_table .team_right .emblem {
+    position: absolute;
+    top: 4px;
+    width: 25px;
+    height: 25px;
+}
+.schedule_month_table .team_left {
+    padding-right: 72px;
+    text-align: right;
+}
+.schedule_month_table .team_right {
+    padding-left: 72px;
+    text-align: left;
+}
+.schedule_month_table .team_left .emblem {
+    right: 38px;
+}
+.schedule_month_table .team_right .emblem {
+    left: 38px;
+}
+.schedule_month_table .team_right:before {
+    position: absolute;
+    left: -7px;
+    width: 20px;
+    color: #b4b4b4;
+    font-size: 15px;
+    content: 'vs';
+}
+.schedule_month_table .team_left .name, .schedule_month_table .team_right .name {
+    color: #2e2e2e;
+    font-size: 14px;
+}

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 다른 파일의 SQL문과 구분하기 위해 -->
+<mapper namespace="mapper.board">
+	<resultMap type="farticleVO" id="farticleResult">
+		<result property="id" column="id"/>
+		<result property="f_aNo" column="f_aNo"/>
+		<result property="f_pNo" column="f_pNo"/>
+		<result property="f_title" column="f_title"/>
+		<result property="f_content" column="f_content"/>
+		<result property="f_img" column="f_img"/>
+		<result property="f_date" column="f_date"/>
+	</resultMap>
+	
+
+	<!-- 전체 글 목록 보기 + 페이징 -->
+	<select id="selectAllArticles" resultMap="farticleResult" parameterType="hashMap">
+		<![CDATA[
+		SELECT * FROM (SELECT ROWNUM as rNum, f_aNo, f_pNo, f_title, id, f_date from (select * from f_board where f_pNo=0 order by f_date desc))
+		where rNum between (#{section}-1)*100 + (#{pageNum}-1)*10 + 1 and (#{section}-1)*100 + #{pageNum}*10
+		]]>
+	</select>	
+	
+	<!-- 전체 글 목록 수를 가져오는 메소드 -->
+	<select id="totArticles" resultType="int">
+		<![CDATA[
+			select count(f_aNo) from f_board where f_pNo=0
+		]]>
+	</select>
+	
+	<!-- 글 번호 생성용 메소드 -->
+	<select id="getNewf_aNo" resultType="int">
+		<![CDATA[
+			SELECT max(f_aNo)+1 from f_board
+		]]>
+	</select>
+	
+	<!-- 선택한 글 보기 (파일다운로드?) -->
+	<select id="selectArticles" resultType="farticleVO" parameterType="int">
+		select f_aNo, f_pNo, f_title, f_content, NVL(f_img, 'null') as f_img, id, f_date from f_board where f_aNo=${value}
+		 START WITH f_pNo=0 CONNECT BY PRIOR f_aNo=f_pNo ORDER SIBLINGS BY f_aNo DESC
+	</select>
+	
+	<!-- 댓글 불러오는 메소드 -->
+	<select id="selectedReply" resultMap="farticleResult" resultType="int">
+		select * from f_board where f_pNo=#{value} order by f_aNo
+	</select>
+	
+	<!-- 글 쓰기 저장 메소드 -->
+	<insert id="insertNewArticle" parameterType="hashMap">
+		<![CDATA[
+			INSERT INTO f_board(f_aNo, f_pNo, f_title, f_content, f_img, id) values(#{f_aNo}, #{f_pNo}, #{f_title}, #{f_content}, #{f_img}, #{id})
+		]]>
+	</insert>
+	
+		<!-- 댓글 쓰기 저장 메소드 -->
+	<insert id="insertNewReply" parameterType="farticleVO">
+		<![CDATA[
+			INSERT INTO f_board(f_aNo, f_pNo, f_title, f_content, id) values(#{f_aNo}, #{f_pNo}, #{f_title}, #{f_content}, #{id})
+		]]>
+	</insert>
+	
+	<!-- 삭제 할 글 목록 받아오기 메소드 -->
+	<select id="removeArticle" parameterType="list" resultType="int">
+		<![CDATA[
+			SELECT f_aNo FROM f_board START WITH f_aNo = #{value} CONNECT BY PRIOR  f_aNo = f_pNo
+		]]>
+	</select>
+
+	
+	<!-- 글 삭제 -->
+	<delete id="deleteArticle" parameterType="int">
+		<![CDATA[
+			DELETE FROM f_board WHERE f_aNo in (SELECT f_aNo FROM  f_board  START WITH f_aNo = #{value} CONNECT BY PRIOR  f_aNo = f_pNo)
+		]]>
+	</delete>
+	
+</mapper>

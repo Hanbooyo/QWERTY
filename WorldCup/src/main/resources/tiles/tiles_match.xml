@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 타일즈 관련 Doctype -->
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<!-- 전체 경기 일정 -->
+	<definition name="/match/matchSchedule" extends="baseLayout">
+		<put-attribute name="title" value="경기일정"/>
+		<put-attribute name="body" value="/WEB-INF/views/match/match.jsp"/>
+	</definition>
+	
+	<!-- 해당 일자의 경기리스트 가져오기 -->
+	<definition name="/match/matchday" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/match/match.jsp"/>		
+	</definition>
+	
+	<!-- 해당 경기의 세부정보 -->
+	<definition name="/match/matchInfo" extends="baseLayout">
+		<put-attribute name="title" value="경기정보"/>
+		<put-attribute name="body" value="/WEB-INF/views/match/matchInfo.jsp"/>		
+	</definition>
+</tiles-definitions>

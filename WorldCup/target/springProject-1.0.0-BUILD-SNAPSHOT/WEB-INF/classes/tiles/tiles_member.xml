@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 타일즈 관련 Doctype -->
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	
+	<!-- 기본 페이지 레이아웃 -->
+	<definition name="baseLayout" template="/WEB-INF/views/common/layout.jsp">
+		<put-attribute name="title" value=""/>
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp"/>
+		<put-attribute name="body" value=""/>
+		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp"/>
+	</definition>
+	
+	<!-- 메인 페이지 설정 -->
+	<definition name="main" extends="baseLayout">
+		<!-- 전체 페이지 제목 -->
+		<put-attribute name="title" value="2022 Qatar WorldCup"/>
+		<put-attribute name="body" value="/WEB-INF/views/main.jsp"/>		
+	</definition>
+	
+	<!-- 로그인 페이지 설정 -->
+	<definition name="/member/loginForm" extends="baseLayout">
+		<!-- 전체 페이지 제목 -->
+		<put-attribute name="title" value="로그인/회원가입"/>
+		<put-attribute name="body" value="/WEB-INF/views/member/loginForm.jsp"/>	
+		</definition>
+			
+	<!-- 마이페이지 설정 -->
+	<definition name="/member/mypage" extends="baseLayout">
+		<!-- 전체 페이지 제목 -->
+		<put-attribute name="title" value="마이페이지"/>
+		<put-attribute name="body" value="/WEB-INF/views/member/mypage.jsp"/>		
+	</definition>
+	
+	<!-- 영상 페이지 설정 -->
+	<definition name="video" extends="baseLayout">
+		<!-- 전체 페이지 제목 -->
+		<put-attribute name="title" value="마이페이지"/>
+		<put-attribute name="body" value="/WEB-INF/views/video.jsp"/>		
+	</definition>
+	
+</tiles-definitions>

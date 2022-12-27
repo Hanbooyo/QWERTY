@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 다른 파일의 SQL문과 구분하기 위해 -->
+<mapper namespace="mapper.member">
+	<resultMap type="memberVO" id="memResult">
+	<!-- DB상의 column을  memberVO 타입으로 property라는 속성에 넣는다. -->
+		<result property="id" column="id"/>
+		<result property="pwd" column="pwd"/>
+		<result property="name" column="name"/>
+		<result property="email" column="email"/>
+		<result property="tel" column="tel"/>
+	</resultMap>
+	
+	<!-- 전체 회원목록 보기 -->
+	<select id="selectAllMemberList" resultMap="memResult">
+		<!-- SQL문 활용에 있어 괄호나 기타 특수문자가 태그 기호로 인식되는걸 방지하기 위해 CDATA 필수 -->
+		<![CDATA[
+			select * from member_info order by memNo
+		]]>
+	</select>
+	
+	<!-- id값을 받아 해당 id에 적합한 회원 정보 보기 -->
+	<select id="findMember" resultType="memberVO" parameterType="String">
+		<!-- SQL문 활용에 있어 괄호나 기타 특수문자가 태그 기호로 인식되는걸 방지하기 위해 CDATA 필수 -->
+		<![CDATA[
+			select * from member_info where id=#{id}
+		]]>
+	</select>
+	
+	<!-- 하나만 결과값으로 받아올 때 결과 타임은 memberVO형식으로 받는 변수의 타입은 String -->
+	<!-- 회원 등록 -->
+	<insert id="insertMember" parameterType="memberVO">
+		<![CDATA[
+			insert into member_info(memNo, id, pwd, name, email, tel) 
+			values(#{memNo}, #{id}, #{pwd}, #{name}, #{email}, #{tel})
+		]]>
+	</insert>
+	
+	<!-- 회원정보 수정 -->
+	<update id="updateMember" parameterType="memberVO">
+		<![CDATA[
+			update member_info set pwd=#{pwd}, name=#{name}, email=#{email},
+			 tel=#{tel} where id=#{id}
+		]]>
+	</update>
+	
+	<!-- 회원 삭제 -->
+	<delete id="deleteMember" parameterType="String">
+		<![CDATA[
+			delete from member_info where id=#{id}
+		]]>
+	</delete>
+	
+	<!-- 회원 로그인 -->
+	<select id="memberConfirm" resultType="memberVO" parameterType="memberVO">
+		<!-- SQL문 활용에 있어 괄호나 기타 특수문자가 태그 기호로 인식되는걸 방지하기 위해 CDATA 필수 -->
+		<![CDATA[
+			select * from member_info where id=#{id} and pwd=#{pwd}
+		]]>
+	</select>
+	
+	<!-- 회원 번호 생성을 위한 번호 순으로 정렬 -->
+	<select id="memberNumber" resultType="Integer">
+		<!-- SQL문 활용에 있어 괄호나 기타 특수문자가 태그 기호로 인식되는걸 방지하기 위해 CDATA 필수 -->
+		<![CDATA[
+			SELECT max(memNo) from member_info
+		]]>
+	</select>
+	
+</mapper>

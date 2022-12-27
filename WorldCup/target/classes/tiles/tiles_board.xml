@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 타일즈 관련 Doctype -->
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+
+	<!-- 자유 게시판 페이지 설정 -->
+	<definition name="/fBoard/listArticles" extends="baseLayout">
+		<put-attribute name="title" value="자유 게시판"/>
+		<put-attribute name="body" value="/WEB-INF/views/board/FlistArticles.jsp"/>		
+	</definition>
+	<!-- 게시글 읽기 -->
+	<definition name="/fBoard/viewArticle" extends="baseLayout">
+		<put-attribute name="title" value="상세 글 보기"/>
+		<put-attribute name="body" value="/WEB-INF/views/board/FviewArticle.jsp"/>		
+	</definition>
+	<!-- 게시글 작성 -->
+	<definition name="/fBoard/FarticleForm" extends="baseLayout">
+		<put-attribute name="title" value="게시글 작성"/>
+		<put-attribute name="body" value="/WEB-INF/views/board/FarticleForm.jsp"/>		
+	</definition>
+	
+	
+</tiles-definitions>

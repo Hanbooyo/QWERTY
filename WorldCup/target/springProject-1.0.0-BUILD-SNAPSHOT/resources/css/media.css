@@ -1,0 +1,61 @@
+.spad {
+	padding-top: 50px;
+	height: 2380.5px;
+}
+.review-item {
+	margin-left: 50px;
+}
+.review-item .review-title{
+	display: block;
+	position: relative;
+	width: 500px;
+	height: 40px;
+	white-space: pre-wrap;
+}
+.review-item .review-text{
+	display: block;
+	position: relative;
+	width: 500px;
+}
+.review-page .selectV form {
+	margin-left: 20px;
+}
+.review-page .selectV form button{
+	border: none;
+	background-color: #fff;
+	padding: 0 15px;
+	font-size: 2em;
+	margin-bottom: 30px;
+	color: #aeaeae;
+}
+.review-page .selectV form button:first-child {
+	color: #000;
+}
+.review-page .review-item {
+	height: auto;
+	margin-bottom: 63px;
+}
+.review-item .review-title{
+	display: block;
+	position: relative;
+	width: 500px;
+	height: 40px;
+	white-space: pre-wrap;
+}
+.review-item .review-cover{
+	display: block;
+	position: relative;
+	width: 500px;
+}
+.review-item .review-text{
+	display: block;
+	position: relative;
+	width: 500px;
+}
+.review-item .review-title {
+	text-align: center;
+}
+
+.container {
+	max-width: 1176px;
+ }

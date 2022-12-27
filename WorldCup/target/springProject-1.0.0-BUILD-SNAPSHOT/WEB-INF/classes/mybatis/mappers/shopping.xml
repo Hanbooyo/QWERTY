@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 다른 파일의 SQL문과 구분하기 위해 -->
+<mapper namespace="mapper.shopping">
+	<resultMap type="shoppingVO" id="shopResult">
+		<result property="i_num" column="i_num"/>
+		<result property="i_name" column="i_name"/>
+		<result property="i_price" column="i_price"/>
+		<result property="i_content" column="i_content"/>
+		<result property="i_img" column="i_img"/>
+		<result property="i_amount" column="i_amount"/>
+	</resultMap>
+	
+	<resultMap type="cartVO" id="cartResult">
+		<result property="c_num" column="c_num"/>
+		<result property="id" column="id"/>
+		<result property="i_num" column="i_num"/>
+		<result property="c_count" column="c_count"/>
+	</resultMap>
+	
+
+	<!-- 전체 상품목록 보기 + 페이징 -->
+	<select id="listItems" resultMap="shopResult" parameterType="hashMap">
+	
+		 select * from (select ROWNUM as rNum, i_name, i_price, i_img 
+		  from(select distinct(i_name), i_price, i_img from item_list 
+		  <choose>
+		  	<when test="category != null and category != ''">
+		  		 where substr(i_num,1,1) = #{category}
+		  	</when>
+		  </choose> 
+		
+		<![CDATA[
+			order by i_img)) where rNum between (#{section}-1)*90 + (#{pageNum}-1)*9 + 1 and (#{section}-1)*90 + #{pageNum}*9
+		]]>
+	</select>	
+	
+	<!-- 상품 이름으로 상품 번호 가져오기 -->
+	<select id="selectItemNo" resultType="int" parameterType="String">
+		  select i_num from (select i_num from item_list where i_name = #{i_name} order by i_num) where rownum = 1
+	</select>
+	
+	<!-- 상품 이름과 옵션으로 상품 번호 가져오기 -->
+	<select id="findItemNo" resultType="int" parameterType="java.util.Map">
+		  select i_num from (select i_num from item_list where i_name = #{i_name} and i_option=#{i_option} order by i_num) where rownum = 1
+	</select>
+	
+	<!-- 상품 번호로 상품 이름 가져오기 -->
+	<select id="selectItemName" resultType="String" parameterType="int">
+		<![CDATA[
+		  select i_name from item_list where i_num = #{i_num}
+		]]>
+	</select>
+	
+	<!-- 전체 글 목록 수 가져오기 -->
+	<select id="selectTotArticles" resultType="int" parameterType="int">
+		select count(distinct i_name) from item_list
+			<choose>
+				<when test="value != null and value != ''">
+					 where substr(i_num,1,1) = #{value}
+				</when>
+			</choose>
+	</select>
+	
+	<!-- 1가지 상품의 전체 정보 가져오기(상품이름)-->
+	<select id="itemDetail" resultMap="shopResult" parameterType="String">
+		<![CDATA[
+			select * from item_list where i_name = #{i_name} order by i_num
+		]]>
+	</select>
+	
+	<!-- 1가지 상품의 전체 정보 가져오기(상품번호)-->
+	<select id="itemInfo" resultMap="shopResult" parameterType="String">
+		<![CDATA[
+			select * from item_list where i_num = #{i_num}
+		]]>
+	</select>
+	
+	<!-- 장바구니번호 가져오기-->
+	<select id="newNum" resultType="int">
+		<![CDATA[
+			select nvl(max(c_num),0) + 1 from cart
+		]]>
+	</select>
+	
+	<!-- 장바구니 추가-->
+	<insert id="addCart" parameterType="cartVO">
+		<![CDATA[
+			insert into cart(c_num, id, i_num, c_count) values(#{c_num},#{id},#{i_num},#{c_count})
+		]]>
+	</insert>
+	
+	<!-- 장바구니번호 가져오기-->
+	<select id="selecCartList" resultMap="cartResult" parameterType="String">
+		<![CDATA[
+			select * from cart where id = #{id} order by c_num
+		]]>
+	</select>
+	
+	<!-- 장바구니상품목록 가져오기
+	<select id="getNumList" resultType="List" parameterType="String">
+		<![CDATA[
+			select i_num from cart where id = #{id} order by c_num
+		]]>
+	</select>-->
+	
+	<!-- 상품 번호를 받아 상품 정보 반환 -->
+	<select id="getItemInfo" resultType="shoppingVO" parameterType="int">
+		<![CDATA[
+			select * from item_list where i_num = #{i_num}
+		]]>
+	</select>
+	
+	<!-- 글작성 페이지에 필요한 상품명 리스트 -->
+   <select id="allItemName" resultMap="shopResult">
+      <![CDATA[
+         select * from item_list where i_option = 'default' order by i_num
+      ]]>
+   </select>
+	
+</mapper>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 타일즈 관련 Doctype -->
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+
+	<!-- 쇼핑 페이지 설정 -->
+	<definition name="shop" extends="baseLayout">
+		<!-- 전체 페이지 제목 -->
+		<put-attribute name="title" value="2022 Qatar WorldCup"/>
+		<put-attribute name="body" value="/WEB-INF/views/shop/shoppinglist.jsp"/>		
+	</definition>
+	
+	<!-- 쇼핑 상세 페이지 설정 -->
+	<definition name="shopdetail" extends="baseLayout">
+		<!-- 전체 페이지 제목 -->
+		<put-attribute name="title" value="2022 Qatar WorldCup"/>
+		<put-attribute name="body" value="/WEB-INF/views/shop/shopdetail.jsp"/>		
+	</definition>
+	
+	<!-- 쇼핑 구매 페이지 설정 -->
+	<definition name="order" extends="baseLayout">
+		<!-- 전체 페이지 제목 -->
+		<put-attribute name="title" value="2022 Qatar WorldCup"/>
+		<put-attribute name="body" value="/WEB-INF/views/shop/order.jsp"/>		
+	</definition>
+	
+	<!-- 장바구니 페이지 설정 -->
+	<definition name="cartlist" extends="baseLayout">
+		<!-- 전체 페이지 제목 -->
+		<put-attribute name="title" value="2022 Qatar WorldCup"/>
+		<put-attribute name="body" value="/WEB-INF/views/shop/cartlist.jsp"/>		
+	</definition>
+</tiles-definitions>
