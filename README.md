@@ -24,11 +24,11 @@ World Cup Destination: Your One-Stop for All Things World Cup
 # 주요기능
 · 경기일정 (sports 무료 API, youtube API 활용)  
 · 실시간 익명채팅 (Websocket 활용)  
-![021](https://user-images.githubusercontent.com/104435251/216000276-97c22cb2-fa20-4e3b-86e1-cdc08e60ce55.jpg)
-
 · 게시판 (Spring MVC)  
 · 회원가입/회원정보관리  
 · 굿즈 쇼핑몰 및 결제시스템 (이니시스 API 활용) 
+
+![021](https://user-images.githubusercontent.com/104435251/216000276-97c22cb2-fa20-4e3b-86e1-cdc08e60ce55.jpg)
 
 ![025](https://user-images.githubusercontent.com/104435251/216000375-0d95bc35-3c4c-44f5-bed9-f3af65e16288.jpg)
 
