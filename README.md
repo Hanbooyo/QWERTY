@@ -29,8 +29,9 @@ World Cup Destination: Your One-Stop for All Things World Cup
 · 굿즈 쇼핑몰 및 결제시스템 (이니시스 API 활용)  
  
 # Demo
-(경기 정보 페이지 데모)
-
+http://52.78.33.220:8080/demo/
+(경기 정보 페이지 Demo)
+AWS 호스팅
 
 
 # RESTful API
