@@ -9,9 +9,9 @@
 · Mybatis  
 · WebSocket  
 · Tomcat 9.0  
-· Javascript
-· jQuery
-· RDBMS (MS SQL, Oracle)
+· Javascript  
+· jQuery  
+· RDBMS (MS SQL, Oracle)  
 
 # 개요
 World Cup Destination: Your One-Stop for All Things World Cup
