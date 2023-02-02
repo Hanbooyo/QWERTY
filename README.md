@@ -9,7 +9,8 @@
 · Mybatis  
 · WebSocket  
 · Tomcat 9.0  
-· jQuery 를 활용한 Front 단 구현  
+· Javascript
+· jQuery
 · RDBMS (MS SQL, Oracle)
 
 # 개요
