@@ -34,7 +34,6 @@ public class FboardDAOImpl implements FboardDAO{
 	public int getNewf_aNo() throws DataAccessException {
 		int getMaxf_aNo = sqlSession.selectOne("mapper.board.getNewf_aNo");
 		int result = getMaxf_aNo +1;
-		System.out.println("새 글 번호" + getMaxf_aNo);
 		return result;
 	}
 
