@@ -39,7 +39,7 @@ World Cup Destination: Your One-Stop for All Things World Cup
 
  
 # Demo
-http://52.78.33.220:8080/demo/  
+http://qwertydemo.shop:8080/demo/
 (경기 정보 페이지 Demo)  
 AWS 호스팅  
 
