@@ -1,7 +1,7 @@
 $(function(){
 
   var textarea = document.getElementById("messageWindow");
-  var webSocket = new WebSocket('ws://localhost:8090//WorldCup/broadcasting');
+  var webSocket = new WebSocket('ws://52.78.33.220:8080//WorldCup/broadcasting');
   var inputMessage = document.getElementById('inputMessage');
   webSocket.onerror = function (event) {
     onError(event)

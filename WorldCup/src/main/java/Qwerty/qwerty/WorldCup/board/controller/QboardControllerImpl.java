@@ -34,7 +34,7 @@ import Qwerty.qwerty.WorldCup.shopping.Service.ShoppingService;
 
 @Controller("qBoardController")
 public class QboardControllerImpl implements QboardController {
-	private static final String ART_IMAGE_REPO = "C:\\\\Boo\\\\upload_images2";
+	private static final String ART_IMAGE_REPO = "C:\\Boo\\upload_images2";
 	@Autowired
 	private QboardService qboardService;
 	@Autowired
@@ -44,7 +44,7 @@ public class QboardControllerImpl implements QboardController {
 	@Autowired
 	private ShoppingService shoppingService;
 	
-	//ÀüÃ¼ °Ô½Ã±Û º¸±â
+	//ï¿½ï¿½Ã¼ ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@Override
 	@RequestMapping(value = "/qBoard/listArticles.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView listArticles(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -70,7 +70,7 @@ public class QboardControllerImpl implements QboardController {
 		return mav;
 	}
 	
-	//±Û »ó¼¼º¸±â
+	//ï¿½ï¿½ ï¿½ó¼¼ºï¿½ï¿½ï¿½
 	@Override
 	@RequestMapping(value = "/qBoard/viewArticle.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView viewArticle(int q_ano, HttpServletRequest request, HttpServletResponse response)
@@ -86,7 +86,7 @@ public class QboardControllerImpl implements QboardController {
 		return mav;
 	}
 	
-	//±Û ÀÛ¼º ÆäÀÌÁö·Î ÀÌµ¿
+	//ï¿½ï¿½ ï¿½Û¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
 	@RequestMapping(value = "/qBoard/articleForm.do", method = RequestMethod.GET)
 	public ModelAndView articleForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String viewName = (String)request.getAttribute("viewName");
@@ -99,7 +99,7 @@ public class QboardControllerImpl implements QboardController {
 		return mav;
 	}
 	
-	//±Û Ãß°¡
+	//ï¿½ï¿½ ï¿½ß°ï¿½
 	@Override
 	@RequestMapping(value = "/qBoard/addArticle.do", method = {RequestMethod.GET, RequestMethod.POST})
 	@ResponseBody
@@ -135,7 +135,7 @@ public class QboardControllerImpl implements QboardController {
 				FileUtils.moveFileToDirectory(srcFile, destDir, true);
 			}
 			message = "<script>";
-			message += "alert('»õ ±ÛÀ» Ãß°¡Çß½À´Ï´Ù');";
+			message += "alert('ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½');";
 			message += "location.href = '" + multipartRequest.getContextPath() + "/qBoard/listArticles.do';";
 			message += "</script>";
 			resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
@@ -144,7 +144,7 @@ public class QboardControllerImpl implements QboardController {
 			File srcFile = new File(ART_IMAGE_REPO + "\\temp\\" + q_img);
 			srcFile.delete();
 			message = "<script>";
-			message += "alert('¿À·ù°¡ ¹ß»ýÇß½À´Ï´Ù. ´Ù½Ã ½ÃµµÇØ ÁÖ¼¼¿ä.');";
+			message += "alert('ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½. ï¿½Ù½ï¿½ ï¿½Ãµï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ï¿½ï¿½.');";
 			message += "location.href = '" + multipartRequest.getContextPath() + "/shop.do';";
 			message += "</script>";
 			resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
@@ -152,7 +152,7 @@ public class QboardControllerImpl implements QboardController {
 		return resEnt;
 	}
 	
-	//±Û ¼öÁ¤
+	//ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@Override
 	@RequestMapping(value = "/qBoard/modArticle.do", method = RequestMethod.POST)
 	@ResponseBody
@@ -184,7 +184,7 @@ public class QboardControllerImpl implements QboardController {
 				oldFile.delete();
 			}
 			message = "<script>";
-			message += "alert('±ÛÀ» ¼öÁ¤Çß½À´Ï´Ù');";
+			message += "alert('ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½');";
 			message += "location.href='" + multipartRequest.getContextPath() + "/qBoard/viewArticle.do?q_ano=" + q_ano + "';";
 			message += "</script>";
 			resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
@@ -192,7 +192,7 @@ public class QboardControllerImpl implements QboardController {
 			File srcFile = new File(ART_IMAGE_REPO + "\\temp\\" + q_img);
 			srcFile.delete();
 			message = "<script>";
-			message += "alert('±ÛÀ» ¼öÁ¤Çß½À´Ï´Ù');";
+			message += "alert('ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½');";
 			message += "location.href='" + multipartRequest.getContextPath() + "/qBoard/viewArticle.do?q_ano=" + q_ano + "';";
 			message += "</script>";
 			resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
@@ -201,7 +201,7 @@ public class QboardControllerImpl implements QboardController {
 		return resEnt;
 	}
 	
-	//±Û »èÁ¦
+	//ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@Override
 	@RequestMapping(value = "/qBoard/removeArticle.do", method = RequestMethod.POST)
 	@ResponseBody
@@ -217,14 +217,14 @@ public class QboardControllerImpl implements QboardController {
 			File destDir = new File(ART_IMAGE_REPO + "\\" + q_ano);
 			FileUtils.deleteDirectory(destDir);
 			message = "<script>";
-			message += "alert('±ÛÀ» »èÁ¦Çß½À´Ï´Ù');";
+			message += "alert('ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½');";
 			message += "location.href='" + request.getContextPath() + "/qBoard/listArticles.do';";
 			message += "</script>";
 			resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
 		} catch (Exception e) {
 			e.printStackTrace();
 			message = "<script>";
-			message += "alert('»èÁ¦ ÀÛ¾÷ Áß ¿À·ù°¡ ¹ß»ýÇß½À´Ï´Ù. ´Ù½Ã ½ÃµµÇØ ÁÖ¼¼¿ä');";
+			message += "alert('ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½. ï¿½Ù½ï¿½ ï¿½Ãµï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ï¿½ï¿½');";
 			message += "location.href'" + request.getContextPath() + "/qBoard/listArticles.do';";
 			message += "</script>";
 			resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
@@ -232,7 +232,7 @@ public class QboardControllerImpl implements QboardController {
 		return resEnt;
 	}
 	
-	//´ä±Û ¾²±â ÆäÀÌÁö·Î ÀÌµ¿
+	//ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
 	@Override
 	@RequestMapping(value = "/qBoard/replyForm.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView replyForm(@RequestParam("q_pno") int q_pno,
@@ -249,7 +249,7 @@ public class QboardControllerImpl implements QboardController {
 		return mav;	
 	}
 	
-	//´ä±Û ¾²±â ±â´É
+	//ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	@Override
 	@RequestMapping(value = "/qBoard/addReply.do", method = {RequestMethod.GET, RequestMethod.POST})
 	@ResponseBody
@@ -287,7 +287,7 @@ public class QboardControllerImpl implements QboardController {
 				FileUtils.moveFileToDirectory(srcFile, destDir, true);
 			}
 			message = "<script>";
-			message += "alert('´ä±ÛÀ» Ãß°¡Çß½À´Ï´Ù');";
+			message += "alert('ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½');";
 			message += "location.href = '" + multipartRequest.getContextPath() + "/qBoard/viewArticle.do?q_ano=" + q_ano + "';";
 			message += "</script>";
 			resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
@@ -296,14 +296,14 @@ public class QboardControllerImpl implements QboardController {
 			File srcFile = new File(ART_IMAGE_REPO + "\\temp\\" + q_img);
 			srcFile.delete();
 			message = "<script>";
-			message += "alert('¿À·ù°¡ ¹ß»ýÇß½À´Ï´Ù. ´Ù½Ã ½ÃµµÇØ ÁÖ¼¼¿ä.');";
+			message += "alert('ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½. ï¿½Ù½ï¿½ ï¿½Ãµï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ï¿½ï¿½.');";
 			message += "location.href = '" + multipartRequest.getContextPath() + "/shop.do';";
 			message += "</script>";
 			resEnt = new ResponseEntity(message, responseHeaders, HttpStatus.CREATED);
 		}
 		return resEnt;
 	}
-	//ÆÄÀÏ ¾÷·Îµå °ü·Ã
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Îµï¿½ ï¿½ï¿½ï¿½ï¿½
 		private String upload(MultipartHttpServletRequest multipartRequest) throws Exception {
 			String q_img = null;
 			Iterator<String> fileNames = multipartRequest.getFileNames();

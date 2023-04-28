@@ -21,30 +21,50 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</resultMap>
 	
 
+	<!-- 전체 상품목록 보기 + 페이징 
+	<select id="listItems" resultMap="shopResult" parameterType="hashMap">
+	  select * from (
+	    select ROWNUM as rNum, i_name, i_price, i_img 
+	    from (
+	      select distinct(i_name), i_price, i_img 
+	      from item_list 
+	      <choose>
+	        <when test="category != null and category != ''">
+	          where substr(i_num,1,1) = #{category}
+	        </when>
+	      </choose> 
+	      order by i_img
+	    ) as tmp
+	  ) as tmp2 where rNum between (#{section}-1)*90 + (#{pageNum}-1)*9 + 1 and (#{section}-1)*90 + #{pageNum}*9
+	</select>
+	-->
+	
 	<!-- 전체 상품목록 보기 + 페이징 -->
 	<select id="listItems" resultMap="shopResult" parameterType="hashMap">
-	
-		 select * from (select ROWNUM as rNum, i_name, i_price, i_img 
-		  from(select distinct(i_name), i_price, i_img from item_list 
-		  <choose>
-		  	<when test="category != null and category != ''">
-		  		 where substr(i_num,1,1) = #{category}
-		  	</when>
-		  </choose> 
-		
-		<![CDATA[
-			order by i_img)) where rNum between (#{section}-1)*90 + (#{pageNum}-1)*9 + 1 and (#{section}-1)*90 + #{pageNum}*9
-		]]>
-	</select>	
+	  select * from (
+	    select ROWNUM as rNum, i_name, i_price, i_img 
+	    from (
+	      select distinct(i_name), i_price, i_img 
+	      from item_list 
+	      <choose>
+	        <when test="category != null and category != ''">
+	          where substr(i_num,1,1) = #{category}
+	        </when>
+	      </choose> 
+	      order by i_img
+	    ) as tmp
+	  ) as tmp2 LIMIT (#{section}-1)*90 + (#{pageNum}-1)*9 + 1), (#{section}-1)*90 + #{pageNum}*9)
+	</select>
+
 	
 	<!-- 상품 이름으로 상품 번호 가져오기 -->
 	<select id="selectItemNo" resultType="int" parameterType="String">
-		  select i_num from (select i_num from item_list where i_name = #{i_name} order by i_num) where rownum = 1
+		  select i_num from (select i_num from item_list where i_name = #{i_name} order by i_num) as t where rownum = 1
 	</select>
 	
 	<!-- 상품 이름과 옵션으로 상품 번호 가져오기 -->
 	<select id="findItemNo" resultType="int" parameterType="java.util.Map">
-		  select i_num from (select i_num from item_list where i_name = #{i_name} and i_option=#{i_option} order by i_num) where rownum = 1
+		  select i_num from (select i_num from item_list where i_name = #{i_name} and i_option=#{i_option} order by i_num) as t where rownum = 1
 	</select>
 	
 	<!-- 상품 번호로 상품 이름 가져오기 -->

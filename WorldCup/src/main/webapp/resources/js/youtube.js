@@ -31,7 +31,7 @@ function fnGetList(sGetToken){
     //최대 조회 갯수
     var maxResults = "8";
     //유튜브 api key
-    var key = "AIzaSyB7YobljpbYHeioPYSKrb3SaVAzkRyEHDs";
+    var key = "AIzaSyDmXf2e9u6uTnGnjYw_LAHJGqojloU3voM";
     //유튜브 api를 활용해 위의 변수들을 담은 영상 데이터 출력 변수 생성(체널에 대한 EndPoint 설정)
     var sTargetUrl = "https://www.googleapis.com/youtube/v3/search?part=snippet&order="+order
             + "&q="+ encodeURIComponent($getval) +"&key="+key+"&maxResults="+maxResults+"&videoEmbeddable = true" + "&videoSyndicated = true" ;

@@ -43,8 +43,8 @@
 					<li><a href="${contextPath}/main.do">홈</a></li>
 					<li><a href="${contextPath}/match/matchSchedule.do">경기</a></li>
 					<li><a href="${contextPath}/video.do">영상</a></li>
-					<li><a href="${contextPath}/fBoard/listArticles.do">커뮤니티</a></li>
-					<li><a href="${contextPath}/shop.do">쇼핑</a></li>
+					<li><a href="#" onclick="alert('데모 페이지에서는 지원하지 않습니다.');">커뮤니티</a></li>
+					<li><a href="#" onclick="alert('데모 페이지에서는 지원하지 않습니다.');">쇼핑</a></li>
 				</ul>
 			</nav>
 		</div>
