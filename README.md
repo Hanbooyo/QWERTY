@@ -17,7 +17,6 @@
 
 # 개요
 World Cup Destination: Your One-Stop for All Things World Cup
-"월드컵 허브: 게시판, 경기 정보, 쇼핑, 기사 & 동영상 제공을 통한 월드컵 전문 사이트"
 
 # 프로젝트의 전체적인 구조
 ![12342](https://user-images.githubusercontent.com/104435251/215962037-bdd3ea57-b073-4bf3-9440-af56e3f8dd21.png)
